@@ -29,12 +29,20 @@ const Top = () => {
     <>
       <div>
         <h2>都道府県一覧</h2>
-        <ul>
-          {prefectures &&
-            prefectures.result.map((pref, index) => (
-              <li key={pref.prefCode}>{pref.prefName}</li>
-            ))}
-        </ul>
+
+        <table>
+          <tbody>
+            {prefectures &&
+              prefectures.result.map((pref, index) => (
+                <tr key={pref.prefCode}>
+                  <td>
+                    <input type="checkbox" name="pref" value={pref.prefCode} />
+                  </td>
+                  <td>{pref.prefName}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
